@@ -7,12 +7,13 @@ const searchRandomNumber = function (min, max) {
   return NaN;
 };
 
-searchRandomNumber();
+searchRandomNumber(1, 10);
 
-function checksLength (line, maxLength) {
-  if (line < maxLength) {
-    return true;
-  } return false;
+function checksLength ( str, length ) {
+  if (typeof str === 'string') {
+    return str.length <= length;
+  }
+  return NaN;
 }
 
 checksLength ();
