@@ -1,4 +1,4 @@
-import {searchRandomNumber} from './utilits';
+import {searchRandomNumber} from './utilits.js';
 
 const PHOTO_NUMBERS = 25;
 const MIN_PHOTO_NUMBERS = 1;
@@ -28,4 +28,4 @@ function getData (photoNumber) {
 }
 
 export { getData };
-
+export { getPhoto };
