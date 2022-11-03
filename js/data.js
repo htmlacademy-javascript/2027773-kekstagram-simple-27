@@ -1,4 +1,4 @@
-import {searchRandomNumber} from './random.js';
+import {searchRandomNumber} from './utilits';
 
 const PHOTO_NUMBERS = 25;
 const MIN_PHOTO_NUMBERS = 1;
@@ -27,4 +27,5 @@ function getData (photoNumber) {
   return data;
 }
 
-getData(PHOTO_NUMBERS);
+export { getData };
+
