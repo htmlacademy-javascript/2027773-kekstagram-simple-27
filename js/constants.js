@@ -1,0 +1,3 @@
+const PHOTO_NUMBERS = 25;
+
+export {PHOTO_NUMBERS};
