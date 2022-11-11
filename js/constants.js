@@ -1,3 +1,3 @@
-const PHOTO_NUMBERS = 25;
+const PHOTO_NUMBERS = 26;
 
 export {PHOTO_NUMBERS};

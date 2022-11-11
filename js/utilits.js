@@ -7,7 +7,7 @@ function searchRandomNumber (min, max) {
   return NaN;
 }
 
-export { searchRandomNumber };
+const isEscapeKey = (evt) => evt.key === 'Escape';
 
 function checksLength ( str, length ) {
   if (typeof str === 'string') {
@@ -18,4 +18,8 @@ function checksLength ( str, length ) {
 
 checksLength ();
 
-export { checksLength };
+export { checksLength,
+  searchRandomNumber,
+  isEscapeKey
+};
+
