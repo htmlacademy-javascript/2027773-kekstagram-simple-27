@@ -1,4 +1,8 @@
 import { isEscapeKey } from './utilits.js';
+import './scale.js';
+import { resetScale } from './scale.js';
+import {setEffects} from './effects.js';
+import { postData }from './api.js';
 
 const upLoudFile = document.querySelector('#upload-file');
 const upLoadCancel = document.querySelector('#upload-cancel');
@@ -13,14 +17,20 @@ form.addEventListener ('submit', (evt) => {
   evt.preventDefault();
 
   const isValid = pristine.validate();
-  if(isValid){
-    console.log ('можно отправлять');
-  } else {
-    console.log ('нельзя отправить');
+  if (isValid) {
+    postData(
+      () => {
+        //closeUploadModal();
+        //renderSuccessModal();
+      },
+      () => {
+        //renderErrorModal();
+      },
+      new FormData(form)
+    );
   }
-
-
-} );
+}
+);
 
 const onFormKeydown = (evt) => {
   if(isEscapeKey(evt)) {
@@ -33,6 +43,7 @@ function openForm () {
   overlay.classList.remove('hidden');
   body.classList.add('modal--open');
   document.addEventListener ('keydown', onFormKeydown);
+  setEffects();
 }
 
 upLoudFile.addEventListener('change', (evt) => {
@@ -41,11 +52,11 @@ upLoudFile.addEventListener('change', (evt) => {
 }
 );
 
-
 function closeForm () {
   overlay.classList.add('hidden');
   body.classList.remove('modal--open');
   form.reset();
+  resetScale();
   document.removeEventListener ('keydown', onFormKeydown);
 }
 
