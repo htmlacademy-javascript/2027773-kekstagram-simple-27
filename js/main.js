@@ -1,5 +1,13 @@
-import './data.js';
-import { getData } from './data.js';
-import './pictures.js';
+import { getData } from './api.js';
+import {renderPictures} from './pictures.js';
 import './form.js';
-getData();
+import './effects.js';
+
+getData(
+  (data) => {
+    renderPictures(data);
+  },
+  () => {
+    //showAlert('Упс! Данные не подгрузились :( Попробуйте позже!');
+  }
+);
