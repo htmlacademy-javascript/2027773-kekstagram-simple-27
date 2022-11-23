@@ -2,29 +2,42 @@ import { isEscapeKey } from './utilits.js';
 import './scale.js';
 import { resetScale } from './scale.js';
 import {setEffects} from './effects.js';
-import { postData }from './api.js';
+import { postData } from './api.js';
+import {renderMessageError} from './modal.js';
+import {renderMessageSuccess} from './modal.js';
 
 const upLoudFile = document.querySelector('#upload-file');
 const upLoadCancel = document.querySelector('#upload-cancel');
 const overlay = document.querySelector('.img-upload__overlay');
 const body = document.querySelector('body');
 const form = document.querySelector('.img-upload__form');
+const submitButton = document.querySelector('.img-upload__submit');
 
 const pristine = new Pristine (form,{}, true);
 
+const blockSubmitButton = () => {
+  submitButton.disabled = true;
+};
+
+const onSubmitButton = () => {
+  submitButton.disabled = false;
+};
 
 form.addEventListener ('submit', (evt) => {
   evt.preventDefault();
 
   const isValid = pristine.validate();
+
   if (isValid) {
+    blockSubmitButton();
     postData(
       () => {
-        //closeUploadModal();
-        //renderSuccessModal();
+        closeForm();
+        onSubmitButton();
+        renderMessageSuccess();
       },
       () => {
-        //renderErrorModal();
+        renderMessageError();
       },
       new FormData(form)
     );
