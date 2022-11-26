@@ -1,5 +1,5 @@
 const GET_USER_PHOTOS = 'https://27.javascript.pages.academy/kekstagram-simple/data';
-const POST_USER_PHOTO = 'https://27.javascript.pages.academy/kekstagram-simple';
+const POST_USER_PHOTO = 'https://27.javascript.pages.academy/kekstagram-simpl';
 
 const getData = (onSuccess, onFail) => {
   fetch(GET_USER_PHOTOS)
